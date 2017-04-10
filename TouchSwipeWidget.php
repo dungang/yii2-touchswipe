@@ -12,7 +12,7 @@ use yii\base\Widget;
 use yii\helpers\Html;
 use yii\helpers\Json;
 
-class Swipe extends Widget
+class TouchSwipeWidget extends Widget
 {
     public $options = [];
     public $clientOptions = [];
@@ -32,7 +32,7 @@ class Swipe extends Widget
     protected function registerClientScript() {
         $id = $this->options['id'];
         $view = $this->getView();
-        SwipeAsset::register($view);
+        TouchSwipeAsset::register($view);
         $options = Json::encode($this->clientOptions);
         $view->registerJs("jQuery('#" . $id . "').swipe($options)");
     }
